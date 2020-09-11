@@ -7,8 +7,20 @@ const finalMessage = document.querySelector("#final-message");
 
 const figureParts = document.querySelectorAll(".figure-part");
 
+const movies = ["avengers end game", "inception", "the dark knight", "rush hour", "star wars", "mission impossible"];
+
 // Array of words
-const words = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad", "fresh prince of bel air", "suits", "house of cards", "stranger things", "the umbrella academy", "the witcher", "smallville"];
+const tvShows = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad", "fresh prince of bel air", "suits", "house of cards", "stranger things", "the umbrella academy", "the witcher", "smallville"];
+
+let words = [];
+
+function array() {
+  words = movies;
+}
+
+array();
+
+console.log(words);
 
 // Generate random word from the words array
 let randomWord = words[Math.floor(Math.random() * words.length)];
