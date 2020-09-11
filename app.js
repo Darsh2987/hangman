@@ -8,7 +8,7 @@ const finalMessage = document.querySelector("#final-message");
 const figureParts = document.querySelectorAll(".figure-part");
 
 // Array of words
-const words = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad"];
+const words = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad", "fresh prince of bel air", "suits", "house of cards", "stranger things", "the umbrella academy", "the witcher", "smallville"];
 
 // Generate random word from the words array
 let randomWord = words[Math.floor(Math.random() * words.length)];
