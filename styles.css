@@ -1,3 +1,7 @@
+:root {
+  --background-color: radial-gradient(circle at 44% 69%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 88% 11%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 47% 61%, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.02) 3%, transparent 3%, transparent 100%), radial-gradient(circle at 77% 95%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 38% 56%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 56% 39%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 52% 28%, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.02) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 0% 1%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 5% 85%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 7%, transparent 7%, transparent 100%), radial-gradient(circle at 77% 87%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 86% 65%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 42% 69%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 77% 82%, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.03) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 65% 85%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 77% 75%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 80% 86%, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.02) 5%, transparent 5%, transparent 100%), radial-gradient(circle at 86% 71%, rgba(255, 255, 255, 0.01) 0%, rgba(255, 255, 255, 0.01) 5%, transparent 5%, transparent 100%), linear-gradient(90deg, rgb(141, 46, 235), rgb(49, 84, 107));
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +10,15 @@
 }
 
 body {
-  background-color: #34495e;
+  background-image: var(--background-color);
+  background-repeat: no-repeat;
+  background-size: cover;
   color: #fff;
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
-  height: 80vh;
+  height: 100vh;
   overflow: hidden;
 }
 
@@ -21,11 +27,8 @@ h1 {
 }
 
 .game-container {
-  position: relative;
-  padding: 2rem 3rem;
-  margin: 3rem 0 5rem;
-  height: 350px;
-  width: 450px;
+  display: flex;
+  margin: 2rem 0 4rem;
 }
 
 .figure-container {
@@ -40,34 +43,35 @@ h1 {
 }
 
 .wrong-letters-container {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  text-align: right;
+  padding: 3rem 0 2rem 0;
+}
+
+.wrong-letters p {
+  margin-top: 1rem;
 }
 
 .wrong-letters-container span {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
+  color: #f00404;
 }
 
 .word {
   display: flex;
-  position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1rem;
 }
 
 .letter {
-  border-bottom: 3px solid #2980b9;
+  border-bottom: 3px solid black;
   display: inline-flex;
   justify-content: center;
   font-size: 1.5rem;
-  margin: 0 3px;
+  margin: 5px 3px;
   width: 20px;
+  height: 40px;
 }
+
 .empty-space {
   display: inline-flex;
   justify-content: center;
@@ -89,7 +93,7 @@ h1 {
 }
 
 .popup {
-  background: #2980b9;
+  background-image: var(--background-color);
   border-radius: 2px;
   box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.1);
   padding: 2rem;
@@ -99,7 +103,7 @@ h1 {
 .popup button {
   cursor: pointer;
   background-color: #fff;
-  color: #2980b9;
+  color: black;
   border: 0;
   margin-top: 2rem;
   padding: 1rem 1.2rem;
