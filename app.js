@@ -13,7 +13,7 @@ const words = ["friends", "heroes", "angel", "titans"];
 // Generate random word from the words array
 let randomWord = words[Math.floor(Math.random() * words.length)];
 
-const correctLetters = ["f", "r", "i", "e", "n", "d", "s"]; // Users Guess
+const correctLetters = []; // Users Guess
 const wrongLetters = []; // Users Guess
 
 /* Show hidden word - 
@@ -45,5 +45,49 @@ function displayWord() {
     popup.style.display = "flex";
   }
 }
+
+// Show Notification Function to show the notice that a key/letter has already been pressed or guessed
+function showNotification() {
+  notification.classList.add("show");
+
+  setTimeout(() => {
+    notification.classList.remove("show");
+  }, 3000);
+}
+
+// Update the wrong letters DOM element
+function updateWrongLettersEl() {}
+
+/* Event for when a letter is pressed -
+Event Listener keydown for when a key is pressed ->
+store the pressed key letter into a variable ->
+check if pressed letter is in the random word and then check if it doesn't exist within the correctLetters array ->
+if letter in not in the correctLetters array then push ->
+call the display function ->
+
+if the letter in not included in the random word then check if the letter is in the wrongLetter array->
+if letter is not in the wrongLetter array then push ->
+call function updateWrongLettersEl
+*/
+window.addEventListener("keydown", (e) => {
+  const letter = e.key;
+  console.log(letter);
+  if (randomWord.includes(letter)) {
+    if (!correctLetters.includes(letter)) {
+      correctLetters.push(letter);
+      displayWord();
+    } else {
+      showNotification();
+    }
+  } else {
+    if (!wrongLetters.includes(letter)) {
+      wrongLetters.push(letter);
+
+      updateWrongLettersEl();
+    } else {
+      showNotification();
+    }
+  }
+});
 
 displayWord();
