@@ -8,7 +8,7 @@ const finalMessage = document.querySelector("#final-message");
 const figureParts = document.querySelectorAll(".figure-part");
 
 // Array of words
-const words = ["friends", "heroes", "angel", "titans", "gotham", "suits"];
+const words = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad"];
 
 // Generate random word from the words array
 let randomWord = words[Math.floor(Math.random() * words.length)];
@@ -31,7 +31,7 @@ function displayWord() {
       .split("")
       .map(
         (letter) => `
-        <span class="letter">
+        <span class="${letter !== " " ? "letter" : "empty-space"}">
           ${correctLetters.includes(letter) ? letter : ""} 
         </span>
       `
@@ -40,8 +40,9 @@ function displayWord() {
   `;
 
   const innerWord = wordEl.innerText.replace(/\n/g, "");
+  const randomWordClean = randomWord.replace(/\s/g, "");
 
-  if (innerWord === randomWord) {
+  if (innerWord === randomWordClean) {
     finalMessage.innerText = "Congratulation You Won!";
     popup.style.display = "flex";
     gameOver = true;
@@ -127,7 +128,7 @@ window.addEventListener("keydown", (e) => {
 });
 
 /* Play again button -
-reset everything
+reset everything, generate new word
 */
 
 playAgainBtn.addEventListener("click", () => {
