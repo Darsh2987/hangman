@@ -16,14 +16,27 @@ body {
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 100vh;
   overflow: hidden;
+  margin-top: 2rem;
 }
 
 h1 {
-  margin: 2rem 0;
+  margin: 1rem 0;
+}
+
+.main {
+  display: flex;
+  margin-top: 0rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.category-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .category-buttons {
@@ -38,16 +51,30 @@ h1 {
 
 .category-buttons button {
   padding: 0.5rem;
-  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
   border-radius: 1px;
   border: none;
   outline: none;
   margin-left: 0.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 150px;
+}
+
+.current-category {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+.category-name {
+  border-bottom: 3px solid black;
 }
 
 .game-container {
-  display: flex;
-  margin: 2rem 0;
+  margin-left: 4rem;
 }
 
 .figure-container {
@@ -59,10 +86,6 @@ h1 {
 
 .figure-part {
   display: none;
-}
-
-.wrong-letters-container {
-  padding: 3rem 0 2rem 0;
 }
 
 .wrong-letters p {

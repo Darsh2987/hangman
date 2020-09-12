@@ -7,6 +7,7 @@ const finalMessage = document.querySelector("#final-message");
 const moviesBtn = document.querySelector("#movies-category");
 const tvBtn = document.querySelector("#tv-category");
 const gamesBtn = document.querySelector("#games");
+const categoryName = document.querySelector("#category-name");
 
 const figureParts = document.querySelectorAll(".figure-part");
 
@@ -32,9 +33,11 @@ function reset() {
 }
 
 // Movies button function to play game with movies category
-moviesBtn.addEventListener("click", () => {
+moviesBtn.addEventListener("click", (e) => {
   randomWord = movies[Math.floor(Math.random() * movies.length)];
   displayWord();
+
+  categoryName.innerHTML = e.target.innerText;
 
   playAgainBtn.addEventListener("click", () => {
     reset();
@@ -45,9 +48,11 @@ moviesBtn.addEventListener("click", () => {
 });
 
 // Tv button function to play game with tv shows category
-tvBtn.addEventListener("click", () => {
+tvBtn.addEventListener("click", (e) => {
   randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
   displayWord();
+
+  categoryName.innerHTML = e.target.innerText;
 
   playAgainBtn.addEventListener("click", () => {
     reset();
@@ -58,9 +63,11 @@ tvBtn.addEventListener("click", () => {
 });
 
 // Games button function to play game with movies category
-gamesBtn.addEventListener("click", () => {
+gamesBtn.addEventListener("click", (e) => {
   randomWord = games[Math.floor(Math.random() * games.length)];
   displayWord();
+
+  categoryName.innerHTML = e.target.innerText;
 
   playAgainBtn.addEventListener("click", () => {
     reset();

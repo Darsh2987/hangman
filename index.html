@@ -13,42 +13,47 @@
   <body>
     <h1 class="h1">Hangman</h1>
 
-    <div class="category-buttons">
-      <p>Choose Category</p>
-      <button id="movies-category" class="movies-category category">Movies</button>
-      <button id="tv-category" class="tv-shows-category category">TV Shows</button>
-      <button id="games" class="games category">Games</button>
-    </div>
-
-    <p>Find the hidden word - Enter a letter</p>
-
-    <!-- Game Container -->
-    <div class="game-container">
-      <!-- SVG to make the hangman frame and man -->
-      <svg class="figure-container" height="250" width="200">
-        <!-- Frame -->
-        <line x1="60" y1="20" x2="60" y2="230" />
-        <line x1="60" y1="20" x2="140" y2="20" />
-        <line x1="140" y1="20" x2="140" y2="50" />
-        <line x1="20" y1="230" x2="100" y2="230" />
-
-        <!-- Head -->
-        <circle class="figure-part" cx="140" cy="70" r="20" />
-        <!-- Body -->
-        <line class="figure-part" x1="140" y1="90" x2="140" y2="150" />
-        <!-- Arms-->
-        <line class="figure-part" x1="140" y1="120" x2="120" y2="110" />
-        <line class="figure-part" x1="140" y1="120" x2="160" y2="110" />
-        <!-- Legs-->
-        <line class="figure-part" x1="140" y1="150" x2="120" y2="170" />
-        <line class="figure-part" x1="140" y1="150" x2="160" y2="170" />
-      </svg>
-
-      <!-- Wrong Letters -->
-      <div class="wrong-letters-container">
-        <div id="wrong-letters"></div>
+    <main class="main">
+      <section class="category-section">
+        <div class="category-buttons">
+          <p>Choose Category</p>
+          <button id="movies-category" class="movies-category category">Movies</button>
+          <button id="tv-category" class="tv-shows-category category">TV Shows</button>
+          <button id="games" class="games category">Video Games</button>
+        </div>
+    
+        <p class="current-category">Current Category: <span id="category-name" class="category-name"><span></p>
+        <p>Guess the hidden word - Enter a letter</p>
+      </section>
+  
+      <!-- Game Container -->
+      <div class="game-container">
+        <!-- SVG to make the hangman frame and man -->
+        <svg class="figure-container" height="250" width="200">
+          <!-- Frame -->
+          <line x1="60" y1="20" x2="60" y2="230" />
+          <line x1="60" y1="20" x2="140" y2="20" />
+          <line x1="140" y1="20" x2="140" y2="50" />
+          <line x1="20" y1="230" x2="100" y2="230" />
+  
+          <!-- Head -->
+          <circle class="figure-part" cx="140" cy="70" r="20" />
+          <!-- Body -->
+          <line class="figure-part" x1="140" y1="90" x2="140" y2="150" />
+          <!-- Arms-->
+          <line class="figure-part" x1="140" y1="120" x2="120" y2="110" />
+          <line class="figure-part" x1="140" y1="120" x2="160" y2="110" />
+          <!-- Legs-->
+          <line class="figure-part" x1="140" y1="150" x2="120" y2="170" />
+          <line class="figure-part" x1="140" y1="150" x2="160" y2="170" />
+        </svg>
+  
+        <!-- Wrong Letters -->
+        <div class="wrong-letters-container">
+          <div id="wrong-letters"></div>
+        </div>
       </div>
-    </div>
+    </main>
 
     <!-- Word to be guessed -->
     <div id="word" class="word"></div>
