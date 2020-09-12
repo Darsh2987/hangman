@@ -13,14 +13,14 @@
   <body>
     <h1 class="h1">Hangman</h1>
 
-    <p>Find the hidden word - Enter a letter</p>
-
     <div class="category-buttons">
       <p>Choose Category</p>
-      <button id="movies-category" class="movies-category">Movies</button>
-      <button id="tv-category" class="tv-shows-category">TV Shows</button>
-      <button id="games" class="games">Games</button>
+      <button id="movies-category" class="movies-category category">Movies</button>
+      <button id="tv-category" class="tv-shows-category category">TV Shows</button>
+      <button id="games" class="games category">Games</button>
     </div>
+
+    <p>Find the hidden word - Enter a letter</p>
 
     <!-- Game Container -->
     <div class="game-container">
@@ -63,7 +63,7 @@
 
     <!-- Notification-->
     <div id="notification-container" class="notification-container">
-      <p>You have already entered this letter</p>
+      <p>You have already entered that letter</p>
     </div>
 
     <script src="./app.js"></script>
