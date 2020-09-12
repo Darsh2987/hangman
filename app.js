@@ -4,30 +4,71 @@ const playAgainBtn = document.querySelector("#play-button");
 const popup = document.querySelector("#popup-container");
 const notification = document.querySelector("#notification-container");
 const finalMessage = document.querySelector("#final-message");
+const moviesBtn = document.querySelector("#movies-category");
+const tvBtn = document.querySelector("#tv-category");
+const gamesBtn = document.querySelector("#games");
 
 const figureParts = document.querySelectorAll(".figure-part");
 
-const movies = ["avengers end game", "inception", "the dark knight", "rush hour", "star wars", "mission impossible"];
+// Array of Movies
+const movies = ["avengers end game", "inception", "the dark knight", "rush hour", "star wars", "mission impossible", "the equalizer", "deadpool", "terminator", "sherlock holmes", "bad boys", "the big short", "the nice guys", "die hard"];
 
-// Array of words
-const tvShows = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad", "fresh prince of bel air", "suits", "house of cards", "stranger things", "the umbrella academy", "the witcher", "smallville"];
+// Array of Tv Shows
+const tvShows = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad", "fresh prince of bel air", "suits", "house of cards", "stranger things", "the umbrella academy", "the witcher", "smallville", "altered carbon"];
 
-let words = [];
-
-function array() {
-  words = movies;
-}
-
-array();
-
-console.log(words);
-
-// Generate random word from the words array
-let randomWord = words[Math.floor(Math.random() * words.length)];
+// Array of Games
+const games = ["destiny", "anthem", "call of duty", "darksiders", "battlefront", "god of war", "ghost of tsushima", "final fantasy 7", "spiderman", "world of warcraft", "resident evil", "fortnight", "max payne", "star wars jedi knight"];
 
 let correctLetters = []; // Users Guess
 let wrongLetters = []; // Users Guess
 let gameOver = false;
+
+// Function to reset the game
+function reset() {
+  correctLetters = [];
+  wrongLetters = [];
+  popup.style.display = "none";
+  gameOver = false;
+}
+
+// Movies button function to play game with movies category
+moviesBtn.addEventListener("click", () => {
+  randomWord = movies[Math.floor(Math.random() * movies.length)];
+  displayWord();
+
+  playAgainBtn.addEventListener("click", () => {
+    reset();
+    randomWord = movies[Math.floor(Math.random() * movies.length)];
+    displayWord();
+    updateWrongLettersEl();
+  });
+});
+
+// Tv button function to play game with tv shows category
+tvBtn.addEventListener("click", () => {
+  randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
+  displayWord();
+
+  playAgainBtn.addEventListener("click", () => {
+    reset();
+    randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
+    displayWord();
+    updateWrongLettersEl();
+  });
+});
+
+// Games button function to play game with movies category
+gamesBtn.addEventListener("click", () => {
+  randomWord = games[Math.floor(Math.random() * games.length)];
+  displayWord();
+
+  playAgainBtn.addEventListener("click", () => {
+    reset();
+    randomWord = games[Math.floor(Math.random() * games.length)];
+    displayWord();
+    updateWrongLettersEl();
+  });
+});
 
 /* Show hidden word - 
 set wordEl's inner html to the random word -> 
@@ -138,23 +179,3 @@ window.addEventListener("keydown", (e) => {
     }
   }
 });
-
-/* Play again button -
-reset everything, generate new word
-*/
-
-playAgainBtn.addEventListener("click", () => {
-  correctLetters = [];
-  wrongLetters = [];
-
-  popup.style.display = "none";
-
-  randomWord = words[Math.floor(Math.random() * words.length)];
-
-  displayWord();
-  updateWrongLettersEl();
-
-  gameOver = false;
-});
-
-displayWord();
