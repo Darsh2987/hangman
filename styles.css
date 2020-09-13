@@ -180,3 +180,28 @@ h1 {
 .notification-container.show {
   transform: translateY(-50px);
 }
+
+@media screen and (max-width: 600px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    margin-top: 0rem;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .category-buttons button {
+    display: inline-block;
+    font-size: 0.8rem;
+    width: 100px;
+  }
+
+  .game-container {
+    display: flex;
+    margin-top: 1rem;
+  }
+
+  .wrong-letters-container {
+    margin-top: 1rem;
+  }
+}
