@@ -7,6 +7,7 @@ const finalMessage = document.querySelector("#final-message");
 const moviesBtn = document.querySelector("#movies-category");
 const tvBtn = document.querySelector("#tv-category");
 const gamesBtn = document.querySelector("#games");
+const musicArtistBtn = document.querySelector("#music-artist-category");
 const categoryName = document.querySelector("#category-name");
 
 const figureParts = document.querySelectorAll(".figure-part");
@@ -16,6 +17,9 @@ const movies = ["avengers end game", "inception", "the dark knight", "rush hour"
 
 // Array of Tv Shows
 const tvShows = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad", "fresh prince of bel air", "suits", "house of cards", "stranger things", "the umbrella academy", "the witcher", "smallville", "altered carbon"];
+
+// Array of Tv Shows
+const musicArtist = ["michael jackson", "ed sheeran", "pentatonix", "linkin park", "adele", "dua lipa", "justin timberlake", "the weekend", "timberland", "sam smith", "kasabian", "chris brown", "bruno mars", "jason derulo"];
 
 // Array of Games
 const games = ["destiny", "anthem", "call of duty", "darksiders", "battlefront", "god of war", "ghost of tsushima", "final fantasy 7", "spiderman", "world of warcraft", "resident evil", "fortnight", "max payne", "star wars jedi knight"];
@@ -57,6 +61,21 @@ tvBtn.addEventListener("click", (e) => {
   playAgainBtn.addEventListener("click", () => {
     reset();
     randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
+    displayWord();
+    updateWrongLettersEl();
+  });
+});
+
+// Music Artists button function to play game with Music Artist category
+musicArtistBtn.addEventListener("click", (e) => {
+  randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
+  displayWord();
+
+  categoryName.innerHTML = e.target.innerText;
+
+  playAgainBtn.addEventListener("click", () => {
+    reset();
+    randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
     displayWord();
     updateWrongLettersEl();
   });
