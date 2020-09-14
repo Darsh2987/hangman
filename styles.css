@@ -178,6 +178,10 @@ h1 {
   opacity: 1;
 }
 
+#input {
+  font-size: 16px;
+}
+
 @media screen and (max-width: 600px) {
   .main {
     display: flex;
