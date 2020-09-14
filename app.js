@@ -9,6 +9,7 @@ const tvBtn = document.querySelector("#tv-category");
 const gamesBtn = document.querySelector("#games");
 const musicArtistBtn = document.querySelector("#music-artist-category");
 const categoryName = document.querySelector("#category-name");
+const inputVal = document.querySelector("#input");
 
 const figureParts = document.querySelectorAll(".figure-part");
 
@@ -26,6 +27,7 @@ const games = ["destiny", "anthem", "call of duty", "darksiders", "battlefront",
 
 let correctLetters = []; // Users Guess
 let wrongLetters = []; // Users Guess
+let enteredLetter = "";
 let gameOver = false;
 
 // Function to reset the game
@@ -34,11 +36,13 @@ function reset() {
   wrongLetters = [];
   popup.style.display = "none";
   gameOver = false;
+  inputVal.focus();
 }
 
 // Movies button function to play game with movies category
 moviesBtn.addEventListener("click", (e) => {
   randomWord = movies[Math.floor(Math.random() * movies.length)];
+  inputVal.focus();
   displayWord();
 
   categoryName.innerHTML = e.target.innerText;
@@ -54,6 +58,7 @@ moviesBtn.addEventListener("click", (e) => {
 // Tv button function to play game with tv shows category
 tvBtn.addEventListener("click", (e) => {
   randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
+  inputVal.focus();
   displayWord();
 
   categoryName.innerHTML = e.target.innerText;
@@ -69,6 +74,7 @@ tvBtn.addEventListener("click", (e) => {
 // Music Artists button function to play game with Music Artist category
 musicArtistBtn.addEventListener("click", (e) => {
   randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
+  inputVal.focus();
   displayWord();
 
   categoryName.innerHTML = e.target.innerText;
@@ -84,6 +90,7 @@ musicArtistBtn.addEventListener("click", (e) => {
 // Games button function to play game with movies category
 gamesBtn.addEventListener("click", (e) => {
   randomWord = games[Math.floor(Math.random() * games.length)];
+  inputVal.focus();
   displayWord();
 
   categoryName.innerHTML = e.target.innerText;
@@ -172,6 +179,33 @@ function updateWrongLettersEl() {
   }
 }
 
+inputVal.addEventListener("keyup", () => {
+  let enteredLetter = inputVal.value;
+  console.log(enteredLetter);
+
+  if (!gameOver) {
+    if (randomWord.includes(enteredLetter)) {
+      if (!correctLetters.includes(enteredLetter)) {
+        correctLetters.push(enteredLetter);
+        displayWord();
+      } else {
+        showNotification();
+      }
+    } else {
+      if (!wrongLetters.includes(enteredLetter)) {
+        wrongLetters.push(enteredLetter);
+
+        updateWrongLettersEl();
+      } else {
+        showNotification();
+      }
+    }
+  }
+
+  inputVal.value = "";
+  inputVal.focus();
+});
+
 /* Event for when a letter is pressed -
 Event Listener keydown for when a key is pressed ->
 following code only runs when "gameOver" is true (!gameOver = true)
@@ -184,24 +218,24 @@ if the letter in not included in the random word then check if the letter is in 
 if letter is not in the wrongLetter array then push ->
 call function updateWrongLettersEl
 */
-window.addEventListener("keydown", (e) => {
-  if (!gameOver) {
-    const letter = e.key;
-    if (randomWord.includes(letter)) {
-      if (!correctLetters.includes(letter)) {
-        correctLetters.push(letter);
-        displayWord();
-      } else {
-        showNotification();
-      }
-    } else {
-      if (!wrongLetters.includes(letter)) {
-        wrongLetters.push(letter);
+// window.addEventListener("keydown", (e) => {
+//   if (!gameOver) {
+//     const letter = e.key;
+//     if (randomWord.includes(letter)) {
+//       if (!correctLetters.includes(letter)) {
+//         correctLetters.push(letter);
+//         displayWord();
+//       } else {
+//         showNotification();
+//       }
+//     } else {
+//       if (!wrongLetters.includes(letter)) {
+//         wrongLetters.push(letter);
 
-        updateWrongLettersEl();
-      } else {
-        showNotification();
-      }
-    }
-  }
-});
+//         updateWrongLettersEl();
+//       } else {
+//         showNotification();
+//       }
+//     }
+//   }
+// });
