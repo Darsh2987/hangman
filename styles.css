@@ -179,10 +179,10 @@ h1 {
 }
 
 #input {
-  font-size: 16px;
   position: absolute;
-  bottom: 400px;
+  bottom: 300px;
   left: 150px;
+  opacity: 0;
 }
 
 @media screen and (max-width: 600px) {
