@@ -11,10 +11,10 @@
 
 body {
   background-image: var(--background-color);
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-size: cover;
   color: #fff;
-  height: 100vh;
+  height: 100%;
 }
 
 h1 {
@@ -23,9 +23,6 @@ h1 {
 }
 
 .main {
-  display: flex;
-  justify-content: center;
-  margin-top: 0rem;
   padding: 1rem;
   text-align: center;
 }
@@ -54,9 +51,6 @@ h1 {
   border: none;
   outline: none;
   margin-left: 0.2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 150px;
   background-color: #fff;
@@ -93,6 +87,9 @@ h1 {
 .wrong-letters p {
   margin-top: 1rem;
 }
+.wrong-letters-container {
+  margin-top: 1rem;
+}
 
 .wrong-letters-container span {
   font-size: 1.8rem;
@@ -103,6 +100,7 @@ h1 {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .letter {
@@ -207,6 +205,11 @@ h1 {
   cursor: pointer;
 }
 
+.game-container {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 600px) {
   .main {
     display: flex;
@@ -227,18 +230,8 @@ h1 {
   }
 
   .category-buttons button {
-    display: inline-block;
     font-size: 0.8rem;
     width: 100px;
-  }
-
-  .game-container {
-    display: flex;
-    margin-top: 1rem;
-  }
-
-  .wrong-letters-container {
-    margin-top: 1rem;
   }
 }
 

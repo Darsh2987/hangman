@@ -24,8 +24,18 @@
         </div>
     
         <p class="current-category">Current Category: <span id="category-name" class="category-name"><span></p>
-        <p>Guess the hidden word - Enter a letter</p>
+        <p>Guess the hidden word by pressing a letter or number from the keyboard</p>
       </section>
+
+      <!-- Word to be guessed -->
+      <div id="word" class="word"></div>
+
+      <button id="show-keyboard" class="show-keyboard">Show Keyboard</button>
+
+      <!-- Notification-->
+      <div id="notification-container" class="notification-container">
+        <p>You have already entered that letter</p>
+      </div>
   
       <!-- Game Container -->
       <div class="game-container">
@@ -56,22 +66,12 @@
       </div>
     </main>
 
-    <!-- Word to be guessed -->
-    <div id="word" class="word"></div>
-
     <!-- Container for final message -->
     <div id="popup-container" class="popup-container">
       <div class="popup">
         <h2 id="final-message"></h2>
         <button id="play-button">Play Again</button>
       </div>
-    </div>
-    
-    <button id="show-keyboard" class="show-keyboard">Show Keyboard</button>
-
-    <!-- Notification-->
-    <div id="notification-container" class="notification-container">
-      <p>You have already entered that letter</p>
     </div>
 
     <input id="input" type="text" maxlength="1" autofocus/>
