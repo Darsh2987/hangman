@@ -163,7 +163,7 @@ h1 {
 }
 
 .notification-container {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 2px;
   padding: 15px 20px;
   margin-bottom: 2rem;
@@ -171,6 +171,8 @@ h1 {
   opacity: 0;
   width: 300px;
   margin: 0 auto;
+  position: relative;
+  bottom: 100px;
 }
 
 .notification-container p {
@@ -186,6 +188,23 @@ h1 {
   bottom: 200px;
   left: 150px;
   opacity: 0;
+}
+
+.show-keyboard {
+  padding: 0.3rem;
+  font-size: 0.8rem;
+  border-radius: 1px;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 120px;
+  margin: 0.5rem auto auto;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 600px) {
@@ -220,5 +239,11 @@ h1 {
 
   .wrong-letters-container {
     margin-top: 1rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .show-keyboard {
+    display: none;
   }
 }

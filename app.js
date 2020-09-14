@@ -10,6 +10,7 @@ const gamesBtn = document.querySelector("#games");
 const musicArtistBtn = document.querySelector("#music-artist-category");
 const categoryName = document.querySelector("#category-name");
 const inputVal = document.querySelector("#input");
+const showKeyboard = document.querySelector("#show-keyboard");
 
 const figureParts = document.querySelectorAll(".figure-part");
 
@@ -34,6 +35,7 @@ let gameOver = false;
 function reset() {
   correctLetters = [];
   wrongLetters = [];
+  updateWrongLettersEl();
   popup.style.display = "none";
   gameOver = false;
   inputVal.focus();
@@ -41,6 +43,7 @@ function reset() {
 
 // Movies button function to play game with movies category
 moviesBtn.addEventListener("click", (e) => {
+  reset();
   randomWord = movies[Math.floor(Math.random() * movies.length)];
   inputVal.focus();
   displayWord();
@@ -51,12 +54,12 @@ moviesBtn.addEventListener("click", (e) => {
     reset();
     randomWord = movies[Math.floor(Math.random() * movies.length)];
     displayWord();
-    updateWrongLettersEl();
   });
 });
 
 // Tv button function to play game with tv shows category
 tvBtn.addEventListener("click", (e) => {
+  reset();
   randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
   inputVal.focus();
   displayWord();
@@ -67,13 +70,13 @@ tvBtn.addEventListener("click", (e) => {
     reset();
     randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
     displayWord();
-    updateWrongLettersEl();
   });
 });
 
 // Music Artists button function to play game with Music Artist category
 musicArtistBtn.addEventListener("click", (e) => {
   randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
+  reset();
   inputVal.focus();
   displayWord();
 
@@ -83,13 +86,13 @@ musicArtistBtn.addEventListener("click", (e) => {
     reset();
     randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
     displayWord();
-    updateWrongLettersEl();
   });
 });
 
 // Games button function to play game with movies category
 gamesBtn.addEventListener("click", (e) => {
   randomWord = games[Math.floor(Math.random() * games.length)];
+  reset();
   inputVal.focus();
   displayWord();
 
@@ -99,7 +102,6 @@ gamesBtn.addEventListener("click", (e) => {
     reset();
     randomWord = games[Math.floor(Math.random() * games.length)];
     displayWord();
-    updateWrongLettersEl();
   });
 });
 
@@ -180,8 +182,7 @@ function updateWrongLettersEl() {
 }
 
 inputVal.addEventListener("keyup", () => {
-  let enteredLetter = inputVal.value;
-  console.log(enteredLetter);
+  let enteredLetter = inputVal.value.toLowerCase();
 
   if (!gameOver) {
     if (randomWord.includes(enteredLetter)) {
@@ -207,6 +208,10 @@ inputVal.addEventListener("keyup", () => {
 });
 
 window.addEventListener("click", () => {
+  inputVal.focus();
+});
+
+showKeyboard.addEventListener("click", () => {
   inputVal.focus();
 });
 
