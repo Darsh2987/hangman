@@ -206,6 +206,10 @@ inputVal.addEventListener("keyup", () => {
   inputVal.focus();
 });
 
+window.addEventListener("click", () => {
+  inputVal.focus();
+});
+
 /* Event for when a letter is pressed -
 Event Listener keydown for when a key is pressed ->
 following code only runs when "gameOver" is true (!gameOver = true)
