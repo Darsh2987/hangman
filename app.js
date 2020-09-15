@@ -1,4 +1,4 @@
-window.addEventListener("load", function () {
+window.addEventListener("load", () => {
   // Global variables
   const popup = document.querySelector("#popup-container");
   const finalMessage = document.querySelector("#final-message");
