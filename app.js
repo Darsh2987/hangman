@@ -211,6 +211,7 @@ window.addEventListener("load", () => {
 
     inputVal.value = "";
     inputVal.focus();
+    categoryName.scrollIntoView();
   });
 
   document.querySelector("#show-keyboard").addEventListener("click", () => {
