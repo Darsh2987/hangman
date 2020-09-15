@@ -13,12 +13,13 @@ window.addEventListener("load", () => {
 
   // Function to reset the game
   function reset() {
+    categoryName.scrollIntoView();
     correctLetters = [];
     wrongLetters = [];
     updateWrongLettersEl();
     popup.style.display = "none";
     gameOver = false;
-    inputVal.focus();
+    inputVal.focus({ preventScroll: true });
     categoryName.scrollIntoView();
   }
 
@@ -211,10 +212,11 @@ window.addEventListener("load", () => {
         }
       }
     }
+    inputVal.focus({ preventScroll: true });
   });
 
   document.querySelector("#show-keyboard").addEventListener("click", () => {
-    inputVal.focus();
+    inputVal.focus({ preventScroll: true });
   });
 
   /* Event for when a letter is pressed -
