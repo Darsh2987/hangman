@@ -9,6 +9,14 @@
   font-family: "Roboto", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+}
+
 body {
   background-image: var(--background-color);
   background-repeat: repeat;
@@ -41,6 +49,11 @@ h1 {
 .category-buttons p {
   margin-bottom: 1rem;
   font-size: 1.2rem;
+}
+
+.category-buttons p:nth-child(2) {
+  margin-top: -0.5rem;
+  font-size: 1rem;
 }
 
 .category-buttons button {
@@ -182,9 +195,6 @@ h1 {
 }
 
 #input {
-  position: absolute;
-  bottom: 100px;
-  left: 150px;
   opacity: 0;
 }
 
