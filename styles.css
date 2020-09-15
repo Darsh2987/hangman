@@ -69,8 +69,7 @@ h1 {
 
 .current-category {
   font-size: 1.3rem;
-  margin-bottom: 2rem;
-  padding-top: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .category-name {
@@ -188,8 +187,6 @@ h1 {
 
 #input {
   opacity: 0;
-  position: relative;
-  bottom: 500px;
 }
 
 .show-keyboard {
