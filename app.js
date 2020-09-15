@@ -1,5 +1,6 @@
 window.addEventListener("load", () => {
   // Global variables
+  const categoryName = document.querySelector("#category-name");
   const popup = document.querySelector("#popup-container");
   const finalMessage = document.querySelector("#final-message");
   const inputVal = document.querySelector("#input");
@@ -25,7 +26,6 @@ window.addEventListener("load", () => {
     const tvBtn = document.querySelector("#tv-category");
     const gamesBtn = document.querySelector("#games");
     const musicArtistBtn = document.querySelector("#music-artist-category");
-    const categoryName = document.querySelector("#category-name");
     const playAgainBtn = document.querySelector("#play-button");
 
     // Array of Movies
@@ -46,7 +46,7 @@ window.addEventListener("load", () => {
       randomWord = movies[Math.floor(Math.random() * movies.length)];
       displayWord();
 
-      categoryName.innerHTML = e.target.innerText;
+      categoryName.innerHTML = e.target.innerHTML;
 
       playAgainBtn.addEventListener("click", () => {
         reset();
@@ -61,7 +61,7 @@ window.addEventListener("load", () => {
       randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
       displayWord();
 
-      categoryName.innerHTML = e.target.innerText;
+      categoryName.innerHTML = e.target.innerHTML;
 
       playAgainBtn.addEventListener("click", () => {
         reset();
@@ -76,7 +76,7 @@ window.addEventListener("load", () => {
       randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
       displayWord();
 
-      categoryName.innerHTML = e.target.innerText;
+      categoryName.innerHTML = e.target.innerHTML;
 
       playAgainBtn.addEventListener("click", () => {
         reset();
@@ -91,7 +91,7 @@ window.addEventListener("load", () => {
       randomWord = games[Math.floor(Math.random() * games.length)];
       displayWord();
 
-      categoryName.innerHTML = e.target.innerText;
+      categoryName.innerHTML = e.target.innerHTML;
 
       playAgainBtn.addEventListener("click", () => {
         reset();
@@ -209,7 +209,10 @@ window.addEventListener("load", () => {
   });
 
   window.addEventListener("click", () => {
-    inputVal.focus();
+    if (!categoryName.innerHTML === "") {
+      console.log(categoryName.innerHTML);
+      inputVal.focus();
+    }
   });
 
   document.querySelector("#show-keyboard").addEventListener("click", () => {
