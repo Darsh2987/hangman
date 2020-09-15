@@ -4,6 +4,7 @@ window.addEventListener("load", () => {
   const finalMessage = document.querySelector("#final-message");
   const inputVal = document.querySelector("#input");
   const categoryName = document.querySelector("#category-name");
+  const showKeyboard = document.querySelector("#show-keyboard");
 
   let randomWord = "";
   let correctLetters = []; // Users Guess
@@ -11,15 +12,21 @@ window.addEventListener("load", () => {
   let enteredLetter = "";
   let gameOver = false;
 
+  function focus() {
+    document.querySelector("#input").focus({
+      preventScroll: true,
+    });
+  }
+
   // Function to reset the game
   function reset() {
-    categoryName.scrollIntoView();
     correctLetters = [];
     wrongLetters = [];
     updateWrongLettersEl();
     popup.style.display = "none";
     gameOver = false;
-    inputVal.focus({ preventScroll: true });
+    focus();
+    showKeyboard.style.display = "flex";
     categoryName.scrollIntoView();
   }
 
@@ -212,7 +219,7 @@ window.addEventListener("load", () => {
         }
       }
     }
-    inputVal.focus({ preventScroll: true });
+    focus();
   });
 
   document.querySelector("#show-keyboard").addEventListener("click", () => {
