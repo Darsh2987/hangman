@@ -239,6 +239,6 @@ h1 {
 
 @media screen and (min-width: 800px) {
   .show-keyboard {
-    display: none;
+    display: none !important;
   }
 }
