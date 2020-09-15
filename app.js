@@ -211,7 +211,6 @@ window.addEventListener("load", () => {
         }
       }
     }
-    inputVal.focus();
   });
 
   document.querySelector("#show-keyboard").addEventListener("click", () => {
