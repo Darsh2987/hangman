@@ -188,6 +188,8 @@ h1 {
 
 #input {
   opacity: 0;
+  position: relative;
+  bottom: 500px;
 }
 
 .show-keyboard {
