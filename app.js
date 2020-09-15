@@ -1,8 +1,10 @@
 window.addEventListener("load", function () {
+  // Global variables
   const popup = document.querySelector("#popup-container");
   const finalMessage = document.querySelector("#final-message");
   const inputVal = document.querySelector("#input");
 
+  let randomWord = "";
   let correctLetters = []; // Users Guess
   let wrongLetters = []; // Users Guess
   let enteredLetter = "";
@@ -42,7 +44,6 @@ window.addEventListener("load", function () {
     moviesBtn.addEventListener("click", (e) => {
       reset();
       randomWord = movies[Math.floor(Math.random() * movies.length)];
-      inputVal.focus();
       displayWord();
 
       categoryName.innerHTML = e.target.innerText;
@@ -58,7 +59,6 @@ window.addEventListener("load", function () {
     tvBtn.addEventListener("click", (e) => {
       reset();
       randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
-      inputVal.focus();
       displayWord();
 
       categoryName.innerHTML = e.target.innerText;
@@ -72,9 +72,8 @@ window.addEventListener("load", function () {
 
     // Music Artists button function to play game with Music Artist category
     musicArtistBtn.addEventListener("click", (e) => {
-      randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
       reset();
-      inputVal.focus();
+      randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
       displayWord();
 
       categoryName.innerHTML = e.target.innerText;
@@ -88,9 +87,8 @@ window.addEventListener("load", function () {
 
     // Games button function to play game with movies category
     gamesBtn.addEventListener("click", (e) => {
-      randomWord = games[Math.floor(Math.random() * games.length)];
       reset();
-      inputVal.focus();
+      randomWord = games[Math.floor(Math.random() * games.length)];
       displayWord();
 
       categoryName.innerHTML = e.target.innerText;
@@ -185,7 +183,7 @@ window.addEventListener("load", function () {
   }
 
   inputVal.addEventListener("keyup", () => {
-    let enteredLetter = inputVal.value.toLowerCase();
+    enteredLetter = inputVal.value.toLowerCase();
 
     if (!gameOver) {
       if (randomWord.includes(enteredLetter)) {
