@@ -51,7 +51,6 @@ window.addEventListener("load", () => {
 
     // Movies button function to play game with movies category
     moviesBtn.addEventListener("click", (e) => {
-      categoryName.scrollIntoView();
       reset();
       randomWord = movies[Math.floor(Math.random() * movies.length)];
       displayWord();
@@ -67,7 +66,6 @@ window.addEventListener("load", () => {
 
     // Tv button function to play game with tv shows category
     tvBtn.addEventListener("click", (e) => {
-      categoryName.scrollIntoView();
       reset();
       randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
       displayWord();
@@ -83,7 +81,6 @@ window.addEventListener("load", () => {
 
     // Music Artists button function to play game with Music Artist category
     musicArtistBtn.addEventListener("click", (e) => {
-      categoryName.scrollIntoView();
       reset();
       randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
       displayWord();
@@ -99,7 +96,6 @@ window.addEventListener("load", () => {
 
     // Games button function to play game with movies category
     gamesBtn.addEventListener("click", (e) => {
-      categoryName.scrollIntoView();
       reset();
       randomWord = games[Math.floor(Math.random() * games.length)];
       displayWord();
