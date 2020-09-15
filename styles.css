@@ -35,7 +35,6 @@ h1 {
 
 .category-buttons {
   text-align: center;
-  margin-bottom: 2rem;
 }
 
 .category-buttons p {
@@ -71,6 +70,7 @@ h1 {
 .current-category {
   font-size: 1.3rem;
   margin-bottom: 2rem;
+  padding-top: 1.5rem;
 }
 
 .category-name {
