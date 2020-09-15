@@ -43,6 +43,7 @@ window.addEventListener("load", () => {
 
     // Movies button function to play game with movies category
     moviesBtn.addEventListener("click", (e) => {
+      inputVal.scrollIntoView();
       reset();
       randomWord = movies[Math.floor(Math.random() * movies.length)];
       displayWord();
@@ -58,6 +59,7 @@ window.addEventListener("load", () => {
 
     // Tv button function to play game with tv shows category
     tvBtn.addEventListener("click", (e) => {
+      inputVal.scrollIntoView();
       reset();
       randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
       displayWord();
@@ -73,6 +75,7 @@ window.addEventListener("load", () => {
 
     // Music Artists button function to play game with Music Artist category
     musicArtistBtn.addEventListener("click", (e) => {
+      inputVal.scrollIntoView();
       reset();
       randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
       displayWord();
@@ -88,6 +91,7 @@ window.addEventListener("load", () => {
 
     // Games button function to play game with movies category
     gamesBtn.addEventListener("click", (e) => {
+      inputVal.scrollIntoView();
       reset();
       randomWord = games[Math.floor(Math.random() * games.length)];
       displayWord();
@@ -190,6 +194,7 @@ window.addEventListener("load", () => {
       if (randomWord.includes(enteredLetter)) {
         if (!correctLetters.includes(enteredLetter)) {
           correctLetters.push(enteredLetter);
+          inputVal.value = "";
           displayWord();
         } else {
           showNotification();
@@ -197,15 +202,14 @@ window.addEventListener("load", () => {
       } else {
         if (!wrongLetters.includes(enteredLetter)) {
           wrongLetters.push(enteredLetter);
-
+          inputVal.value = "";
           updateWrongLettersEl();
         } else {
           showNotification();
         }
       }
     }
-
-    inputVal.value = "";
+    inputVal.focus();
   });
 
   document.querySelector("#show-keyboard").addEventListener("click", () => {
