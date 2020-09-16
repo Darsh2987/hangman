@@ -11,11 +11,10 @@ window.addEventListener("load", () => {
   let wrongLetters = []; // Users Guess
   let enteredLetter = "";
   let gameOver = false;
+  let currentCategory = "";
 
   function focus() {
-    document.querySelector("#input").focus({
-      preventScroll: true,
-    });
+    document.querySelector("#input").focus();
   }
 
   // Function to reset the game
@@ -37,76 +36,58 @@ window.addEventListener("load", () => {
     const musicArtistBtn = document.querySelector("#music-artist-category");
     const playAgainBtn = document.querySelector("#play-button");
 
-    // Array of Movies
-    const movies = ["avengers end game", "inception", "the dark knight", "rush hour", "star wars", "mission impossible", "the equalizer", "deadpool", "terminator", "sherlock holmes", "bad boys", "the big short", "the nice guys", "die hard"];
+    // CATEGORIES
+    const categories = {
+      movies: ["avengers end game", "inception", "the dark knight", "rush hour", "star wars", "mission impossible", "the equalizer", "deadpool", "terminator", "sherlock holmes", "bad boys", "the big short", "the nice guys", "die hard"],
+      tvShows: ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad", "fresh prince of bel air", "suits", "house of cards", "stranger things", "the umbrella academy", "the witcher", "smallville", "altered carbon"],
+      musicArtist: ["michael jackson", "ed sheeran", "pentatonix", "linkin park", "adele", "dua lipa", "justin timberlake", "the weekend", "timberland", "sam smith", "kasabian", "chris brown", "bruno mars", "jason derulo"],
+      games: ["destiny", "anthem", "call of duty", "darksiders", "battlefront", "god of war", "ghost of tsushima", "final fantasy 7", "spiderman", "world of warcraft", "resident evil", "fortnight", "max payne", "star wars jedi knight"],
+    };
 
-    // Array of Tv Shows
-    const tvShows = ["friends", "heroes", "angel", "titans", "brooklyn nine nine", "breaking bad", "fresh prince of bel air", "suits", "house of cards", "stranger things", "the umbrella academy", "the witcher", "smallville", "altered carbon"];
-
-    // Array of Tv Shows
-    const musicArtist = ["michael jackson", "ed sheeran", "pentatonix", "linkin park", "adele", "dua lipa", "justin timberlake", "the weekend", "timberland", "sam smith", "kasabian", "chris brown", "bruno mars", "jason derulo"];
-
-    // Array of Games
-    const games = ["destiny", "anthem", "call of duty", "darksiders", "battlefront", "god of war", "ghost of tsushima", "final fantasy 7", "spiderman", "world of warcraft", "resident evil", "fortnight", "max payne", "star wars jedi knight"];
+    playAgainBtn.addEventListener("click", () => {
+      reset();
+      randomWord = categories[currentCategory][Math.floor(Math.random() * categories[currentCategory].length)];
+      displayWord();
+    });
 
     // Movies button function to play game with movies category
     moviesBtn.addEventListener("click", (e) => {
       reset();
-      randomWord = movies[Math.floor(Math.random() * movies.length)];
+      randomWord = categories.movies[Math.floor(Math.random() * categories.movies.length)];
       displayWord();
 
       categoryName.innerHTML = e.target.innerText;
-
-      playAgainBtn.addEventListener("click", () => {
-        reset();
-        randomWord = movies[Math.floor(Math.random() * movies.length)];
-        displayWord();
-      });
+      currentCategory = "movies";
     });
 
     // Tv button function to play game with tv shows category
     tvBtn.addEventListener("click", (e) => {
       reset();
-      randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
+      randomWord = categories.tvShows[Math.floor(Math.random() * categories.tvShows.length)];
       displayWord();
 
       categoryName.innerHTML = e.target.innerText;
-
-      playAgainBtn.addEventListener("click", () => {
-        reset();
-        randomWord = tvShows[Math.floor(Math.random() * tvShows.length)];
-        displayWord();
-      });
+      currentCategory = "tvShows";
     });
 
     // Music Artists button function to play game with Music Artist category
     musicArtistBtn.addEventListener("click", (e) => {
       reset();
-      randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
+      randomWord = categories.musicArtist[Math.floor(Math.random() * categories.musicArtist.length)];
       displayWord();
 
       categoryName.innerHTML = e.target.innerText;
-
-      playAgainBtn.addEventListener("click", () => {
-        reset();
-        randomWord = musicArtist[Math.floor(Math.random() * musicArtist.length)];
-        displayWord();
-      });
+      currentCategory = "musicArtist";
     });
 
     // Games button function to play game with movies category
     gamesBtn.addEventListener("click", (e) => {
       reset();
-      randomWord = games[Math.floor(Math.random() * games.length)];
+      randomWord = categories.games[Math.floor(Math.random() * categories.games.length)];
       displayWord();
 
       categoryName.innerHTML = e.target.innerText;
-
-      playAgainBtn.addEventListener("click", () => {
-        reset();
-        randomWord = games[Math.floor(Math.random() * games.length)];
-        displayWord();
-      });
+      currentCategory = "games";
     });
   }
 
@@ -191,6 +172,18 @@ window.addEventListener("load", () => {
     }
   }
 
+  /* Event for when a letter is pressed -
+  Event Listener keydown for when a key is pressed ->
+  following code only runs when "gameOver" is true (!gameOver = true)
+  store the pressed key letter into a variable ->
+  check if pressed letter is in the random word and then check if it doesn't exist within the correctLetters array ->
+  if letter in not in the correctLetters array then push ->
+  call the display function ->
+
+  if the letter in not included in the random word then check if the letter is in the wrongLetter array->
+  if letter is not in the wrongLetter array then push ->
+  call function updateWrongLettersEl
+  */
   inputVal.addEventListener("keyup", () => {
     enteredLetter = inputVal.value.toLowerCase();
 
@@ -219,21 +212,15 @@ window.addEventListener("load", () => {
   });
 
   document.querySelector("#show-keyboard").addEventListener("click", () => {
-    inputVal.focus({ preventScroll: true });
+    inputVal.focus();
   });
 
-  /* Event for when a letter is pressed -
-  Event Listener keydown for when a key is pressed ->
-  following code only runs when "gameOver" is true (!gameOver = true)
-  store the pressed key letter into a variable ->
-  check if pressed letter is in the random word and then check if it doesn't exist within the correctLetters array ->
-  if letter in not in the correctLetters array then push ->
-  call the display function ->
+  window.addEventListener("click", () => {
+    if (categoryName.innerText.length > 0) {
+      focus();
+    }
+  });
 
-  if the letter in not included in the random word then check if the letter is in the wrongLetter array->
-  if letter is not in the wrongLetter array then push ->
-  call function updateWrongLettersEl
-  */
   // window.addEventListener("keydown", (e) => {
   //   if (!gameOver) {
   //     const letter = e.key;
