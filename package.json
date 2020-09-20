@@ -1,0 +1,33 @@
+{
+  "name": "hangman",
+  "version": "1.0.0",
+  "description": "Hangman game built using JavaScript",
+  "main": "app.js",
+  "dependencies": {
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "css-loader": "^4.3.0",
+    "mini-css-extract-plugin": "^0.11.2",
+    "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.2.2"
+  },
+  "scripts": {
+    "build": "webpack --mode development --watch",
+    "build:prod": "webpack --mode production",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darsh2987/hangman.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Darsh2987/hangman/issues"
+  },
+  "homepage": "https://github.com/Darsh2987/hangman#readme"
+}

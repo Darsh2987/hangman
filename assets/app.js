@@ -1,3 +1,4 @@
+import "./styles.css";
 window.addEventListener("load", () => {
   // Global variables
   const popup = document.querySelector("#popup-container");
