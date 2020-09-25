@@ -2,9 +2,10 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: ["./src/assets/app.js", "./src/index.html"],
+  entry: "./src/assets/app.js",
   output: {
     filename: "bundled-script.js",
     path: path.resolve(__dirname, "dist"),
@@ -16,6 +17,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "bundled-styles.css",
     }),
+    new HtmlWebpackPlugin(),
   ],
   module: {
     rules: [
