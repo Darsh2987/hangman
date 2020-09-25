@@ -17,7 +17,10 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "bundled-styles.css",
     }),
-    new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "index",
+      template: "index.html",
+    }),
   ],
   module: {
     rules: [
