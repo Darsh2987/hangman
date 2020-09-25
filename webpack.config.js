@@ -4,7 +4,7 @@ const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  entry: ["./src/assets/app.js", "./src.index.html"],
+  entry: ["./src/assets/app.js", "./src/index.html"],
   output: {
     filename: "bundled-script.js",
     path: path.resolve(__dirname, "dist"),
